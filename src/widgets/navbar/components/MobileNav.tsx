@@ -21,6 +21,7 @@ export const MobileNav = () => {
   };
 
   const renderedMenuIcon = <MoreVertIcon />;
+
   return (
     <div className="sm:hidden">
       <button onClick={() => setMobileMenuOpen(prev => !prev)}>
@@ -28,17 +29,16 @@ export const MobileNav = () => {
       </button>
 
       <div
-        className={` z-50 flex absolute top-[74px] -left-3  w-screen h-screen 
+        className={`z-50 flex absolute top-[74px] left-0 w-full h-screen
             flex-1 justify-end transition-all duration-300 ease`}
         style={{ visibility: mobileMenuOpen ? "visible" : "hidden" }}
         onClick={onEmptyAreaClick}
       >
         <div
-          className={`flex w-1/2 h-full py-7 justify-center rounded-l-lg
-            transition-transform duration-300 ease-in-out ${
+          className={`flex w-full h-fit py-7 justify-center rounded-xl
+            transition-transform duration-300 ease-in-out bg-primary_light ${
               mobileMenuOpen ? " translate-x-0" : "translate-x-full"
             }`}
-          style={{ backgroundColor: COLORS.primary }}
         >
           <ul className="flex flex-col items-center gap-y-4">
             {renderedLinks}

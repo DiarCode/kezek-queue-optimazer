@@ -5,7 +5,7 @@ import React from "react";
 
 export const AuthNav = () => {
   return (
-    <div className="flex items-center gap-x-7">
+    <div className="flex items-center gap-x-4">
       <Link href={PAGES_LINKS.Login.link} className="hidden sm:block">
         <p>{PAGES_LINKS.Login.name}</p>
       </Link>

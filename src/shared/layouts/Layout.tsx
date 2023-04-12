@@ -26,7 +26,7 @@ export const Layout: FC<LayoutProps> = ({
   );
 
   return (
-    <>
+    <div className="bg-white">
       <Head>
         <title>{titleText}</title>
         <meta name="Keywords" content="words, learn, remember, cards" />
@@ -34,13 +34,13 @@ export const Layout: FC<LayoutProps> = ({
       </Head>
 
       <main
-        className={`w-screen h-screen overflow-y-hidden font-montserrat text-sm sm:text-base mx-auto px-3 ${
+        className={`w-screen bg-white font-montserrat text-sm sm:text-base mx-auto px-3 pb-10 ${
           containerized && "container"
         } ${className}`}
       >
         {showNavbar && <Navbar />}
         {children}
       </main>
-    </>
+    </div>
   );
 };
