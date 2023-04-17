@@ -3,22 +3,15 @@ import React, { FC, useMemo } from "react";
 type FlatListProps<T> = {
   data: T[];
   cb: (items: T, index: number) => React.ReactNode;
-  space?: string;
   horizontal?: boolean;
-  scroll?: boolean;
-  wrap?: boolean;
   alignCentered?: boolean;
 };
-
-const DEFAULT_SPACE = "24px";
 
 export const FlatList = <T extends unknown>({
   data,
   cb,
-  space = DEFAULT_SPACE,
   horizontal = false,
   alignCentered = true,
-  wrap = true,
 }: FlatListProps<T>) => {
   const renderedItems = useMemo(() => {
     return data.map(cb);
@@ -26,11 +19,11 @@ export const FlatList = <T extends unknown>({
 
   return (
     <div
-      className={`w-full flex scrollbar-hide sm:scrollbar-default ${
-        alignCentered ? "items-center" : "items-start"
-      } pb-6 ${wrap ? "flex-wrap overflow-x-auto" : ""} 
-        ${horizontal ? "flex-nowrap" : ""}`}
-      style={{ gap: space }}
+      className={`w-full grid grid-cols-fluid gap-4 sm:gap-6 scrollbar-hide 
+        sm:scrollbar-default items-start pb-7
+        ${horizontal ? "grid-flow-col auto-cols-[296px] overflow-x-auto" : ""}
+        ${alignCentered ? "items-center" : "items-start"}
+      `}
     >
       {renderedItems}
     </div>

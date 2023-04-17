@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(280px, 1fr))",
+      },
       colors: {
         white: "#fbfbfd",
         black: "#202426",

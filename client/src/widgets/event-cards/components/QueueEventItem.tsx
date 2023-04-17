@@ -20,14 +20,14 @@ export const QueueEventItem: FC<QueueEventItemsProps> = ({ data }) => {
   const eventLink = `${PAGES_LINKS.Events.link}/${data.id}`;
 
   return (
-    <div className="w-[240px] sm:w-[296px]">
+    <div className="w-full">
       <Link href={eventLink} className="text-xs text-primary">
-        <div className="relative w-full h-[140px] sm:h-[172px]">
+        <div className="relative h-[140px] sm:h-[172px]">
           <Image src={data.img} alt={data.title} fill className="rounded-xl" />
         </div>
       </Link>
 
-      <div className="w-full mt-3 sm:mt-4 px-2">
+      <div className="mt-3 sm:mt-4 px-2">
         <h1 className="text-sm sm:text-base text-black font-semibold truncate">
           {data.title}
         </h1>
@@ -37,7 +37,7 @@ export const QueueEventItem: FC<QueueEventItemsProps> = ({ data }) => {
         </p>
       </div>
 
-      <div className="w-full flex items-center justify-between mt-3 sm:mt-4 px-2 pr-4">
+      <div className="flex items-center justify-between mt-3 sm:mt-4 px-2 pr-4">
         <p className="flex-grow-1 text-gray-500 text-xs">10 December 2022</p>
         <Link href={eventLink} className="text-xs text-primary">
           See more

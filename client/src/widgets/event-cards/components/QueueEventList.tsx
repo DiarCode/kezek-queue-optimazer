@@ -20,7 +20,6 @@ export const QueueEventList: FC<QueueEventListProps> = ({
       <FlatList
         data={data || []}
         cb={item => <QueueEventItem key={item.id} data={item} />}
-        space="26px"
         horizontal
         alignCentered={false}
       />
