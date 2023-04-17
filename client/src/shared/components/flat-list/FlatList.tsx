@@ -19,7 +19,7 @@ export const FlatList = <T extends unknown>({
 
   return (
     <div
-      className={`w-full grid grid-cols-fluid gap-4 sm:gap-6 scrollbar-hide 
+      className={`w-full grid grid-cols-fluid gap-x-4 sm:gap-x-6 gap-y-8 scrollbar-hide 
         sm:scrollbar-default items-start pb-7
         ${horizontal ? "grid-flow-col auto-cols-[296px] overflow-x-auto" : ""}
         ${alignCentered ? "items-center" : "items-start"}
