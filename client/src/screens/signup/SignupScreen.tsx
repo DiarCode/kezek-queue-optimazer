@@ -15,7 +15,7 @@ export const SignupScreen: FC<LoginProps> = ({}) => {
       className="p-0 bg-gradient-to-r from-[#1488CC] to-[#2B32B2]
         flex flex-col items-center justify-center overflow-hidden"
     >
-      <main className="w-full sm:w-1/4 bg-white p-7 rounded-xl">
+      <main className="w-full sm:w-3/4 lg:w-1/4 bg-white p-7 rounded-xl">
         <p className="text-lg sm:text-2xl font-semibold mb-7 text-center">
           Registration
         </p>
