@@ -58,7 +58,7 @@ export const OurOffer = () => {
             key={item.title}
             className="flex flex-col items-center justify-start w-full sm:w-1/4 p-5"
           >
-            <div>{item.icon}</div>
+            <div className="h-full">{item.icon}</div>
             <p className="text-center mt-6 font-semibold">{item.title}</p>
             <p className="text-center mt-2 text-gray-500 text-sm">
               {item.text}
