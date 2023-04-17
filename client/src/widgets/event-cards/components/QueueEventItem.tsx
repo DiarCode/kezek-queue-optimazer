@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 
-type QueueEventItemsProps = {
+interface QueueEventItemsProps {
   data: QueueEvent;
-};
+}
 
 const MAX_DESCR_SIZE = 60;
 

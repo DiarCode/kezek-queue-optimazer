@@ -26,10 +26,10 @@ export const FlatList = <T extends unknown>({
 
   return (
     <div
-      className={`w-full flex scrollbar-hide ${
+      className={`w-full flex scrollbar-hide sm:scrollbar-default ${
         alignCentered ? "items-center" : "items-start"
-      } pb-3 ${wrap ? "flex-wrap" : ""} 
-        ${horizontal ? "overflow-x-auto flex-nowrap" : ""}`}
+      } pb-6 ${wrap ? "flex-wrap overflow-x-auto" : ""} 
+        ${horizontal ? "flex-nowrap" : ""}`}
       style={{ gap: space }}
     >
       {renderedItems}

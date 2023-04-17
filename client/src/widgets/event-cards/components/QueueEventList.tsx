@@ -16,7 +16,7 @@ export const QueueEventList: FC<QueueEventListProps> = ({
 }) => {
   return (
     <div className={className}>
-      <h1 className="text-base sm:text-lg font-semibold mb-5">{title}</h1>
+      <h1 className="text-base sm:text-lg font-semibold mb-3">{title}</h1>
       <FlatList
         data={data || []}
         cb={item => <QueueEventItem key={item.id} data={item} />}
