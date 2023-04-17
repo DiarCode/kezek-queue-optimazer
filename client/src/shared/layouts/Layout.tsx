@@ -34,7 +34,7 @@ export const Layout: FC<LayoutProps> = ({
       </Head>
 
       <main
-        className={`w-screen bg-white font-montserrat text-sm sm:text-base mx-auto px-3 pb-10 ${
+        className={`w-screen overflow-clip bg-white font-montserrat text-sm sm:text-base mx-auto px-3 pb-10 ${
           containerized && "container"
         } ${className}`}
       >
