@@ -27,6 +27,7 @@
     "@mui/material": "^5.11.15",
     "autoprefixer": "^10.4.14",
     "framer-motion": "^10.11.5",
+    "moment": "^2.29.4",
     "postcss": "^8.4.21",
     "react-hook-form": "^7.43.8",
     "tailwind-scrollbar-hide": "^1.1.7",
