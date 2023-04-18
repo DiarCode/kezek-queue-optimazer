@@ -16,12 +16,13 @@ export const PAGES_LINKS = {
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
   Partners: { name: "Partners", link: "/partners" },
+  Search: { name: "Search", link: "/search" },
 };
 
 export const DESKTOP_NAVBAR_LINKS = {
   Home: PAGES_LINKS.Home,
   Events: PAGES_LINKS.Events,
-  Partners: PAGES_LINKS.Partners,
+  Search: PAGES_LINKS.Search,
 };
 
 export const MOBILE_NAVBAR_LINKS = {

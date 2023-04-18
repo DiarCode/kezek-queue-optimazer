@@ -10,7 +10,7 @@ const offerIcons = [
     icon: (
       <AccessibilityNewOutlinedIcon
         className="w-12 h-12"
-        htmlColor={COLORS.primary_light}
+        htmlColor={COLORS.primary}
       />
     ),
     text: "High accecability and user experience in one app",
@@ -18,10 +18,7 @@ const offerIcons = [
   {
     title: "Safe your time",
     icon: (
-      <AlarmOutlinedIcon
-        className="w-12 h-12 "
-        htmlColor={COLORS.primary_light}
-      />
+      <AlarmOutlinedIcon className="w-12 h-12 " htmlColor={COLORS.primary} />
     ),
     text: "Don't waste time waiting in real life queue",
   },
@@ -30,7 +27,7 @@ const offerIcons = [
     icon: (
       <AppShortcutOutlinedIcon
         className="w-12 h-12"
-        htmlColor={COLORS.primary_light}
+        htmlColor={COLORS.primary}
       />
     ),
     text: "Use any device you wish, and get in queue online",
@@ -42,7 +39,7 @@ export const OurOffer = () => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      className="w-full bg-gray-100 bg-opacity-80 py-8 rounded-xl mt-8 flex flex-col items-center justify-center"
+      className="w-full bg-cgray py-8 rounded-xl mt-8 flex flex-col items-center justify-center"
     >
       <p className="text-sm text-gray-500">Benefits for you</p>
       <h1 className="mt-3 font-bold text-5xl text-primary">Our Offer</h1>

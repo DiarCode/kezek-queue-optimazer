@@ -36,7 +36,7 @@ export const MobileNav = () => {
       >
         <div
           className={`flex w-full h-fit py-7 justify-center rounded-xl
-            transition-transform duration-300 ease-in-out bg-primary_light ${
+            transition-transform duration-300 ease-in-out bg-primary ${
               mobileMenuOpen ? " translate-x-0" : "translate-x-full"
             }`}
         >
