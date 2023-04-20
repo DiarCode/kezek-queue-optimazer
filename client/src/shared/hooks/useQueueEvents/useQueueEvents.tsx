@@ -16,6 +16,5 @@ export function useQueueEvent(id: string | undefined) {
       enabled: id !== undefined,
     }
   );
-
   return response;
 }
