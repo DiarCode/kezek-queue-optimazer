@@ -24,7 +24,12 @@ export const QueueEventItem: FC<QueueEventItemsProps> = ({ data }) => {
     <div className="w-full bg-cgray rounded-2xl">
       <Link href={eventLink}>
         <div className="relative h-[182px] sm:h-[172px]">
-          <Image src={data.img} alt={data.title} fill className="rounded-xl" />
+          <Image
+            src={data.img}
+            alt={data.title}
+            fill
+            className="rounded-xl object-cover"
+          />
         </div>
       </Link>
 
