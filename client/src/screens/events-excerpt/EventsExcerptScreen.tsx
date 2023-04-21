@@ -31,11 +31,11 @@ export const EventsExcerptScreen = () => {
       )} */}
 
       <div
-        className="grid sm:grid-flow-row lg:px-32 gap-x-10 sm:pt-8
+        className="grid sm:grid-flow-row lg:px-32 gap-x-10 pt-2 sm:pt-8
         grid-cols-none sm:grid-cols-3 lg:grid-cols-6 "
       >
         <div className="sm:col-span-2 lg:col-span-4 sm:pr-6 flex flex-col mb-6">
-          <div className="mb-4 sm:mb-8 flex items-center gap-x-5">
+          <div className="mb-6 sm:mb-8 flex items-center gap-x-5">
             <div className="relative w-8 sm:w-12 h-8 sm:h-12">
               <Image
                 src={MOCK_AVATAR_IMAGE}
