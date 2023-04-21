@@ -12,7 +12,7 @@ export const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <nav
-      className="sticky top-0 z-50 flex justify-between items-center py-6 bg-white"
+      className="sticky top-0 flex z-20 justify-between items-center py-6 bg-white"
       style={{ display: visible ? "flex" : "none" }}
     >
       <Logo />
