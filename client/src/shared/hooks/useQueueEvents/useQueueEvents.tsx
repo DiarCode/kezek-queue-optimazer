@@ -1,5 +1,5 @@
 import { getAllEvents, getEventById } from "@/shared/api/events/event.api";
-import { QueueEvent } from "@/shared/utils/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 
 export function useQueueEvents() {

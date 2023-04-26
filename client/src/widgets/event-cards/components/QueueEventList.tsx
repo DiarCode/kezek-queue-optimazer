@@ -1,7 +1,7 @@
 import { FlatList } from "@/shared/components/flat-list/FlatList";
 import { FC } from "react";
 import { QueueEventItem } from "./QueueEventItem";
-import { QueueEvent } from "@/shared/utils/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
 
 type QueueEventListProps = {
   title: string;

@@ -1,6 +1,8 @@
 import { Navbar } from "@/widgets/navbar";
 import Head from "next/head";
 import React, { FC, PropsWithChildren } from "react";
+import { useAuth } from "../hooks/useAuth/useAuth";
+import { Spinner } from "../components/spinner/Spinner";
 
 interface LayoutProps extends PropsWithChildren {
   title: string;
@@ -18,7 +20,10 @@ export const Layout: FC<LayoutProps> = ({
   showNavbar = true,
   containerized = true,
 }) => {
+  const { onMountLoading } = useAuth();
+
   const titleText = `${title} - KEZEK`;
+
   const renderedDescription = description ? (
     <meta name="description" content={description} />
   ) : (

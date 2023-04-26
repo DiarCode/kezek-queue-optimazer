@@ -9,26 +9,21 @@ const offerIcons = [
     title: "User-friendly experience",
     icon: (
       <AccessibilityNewOutlinedIcon
-        className="w-12 h-12"
         htmlColor={COLORS.primary}
+        fontSize="large"
       />
     ),
     text: "High accecability and user experience in one app",
   },
   {
     title: "Safe your time",
-    icon: (
-      <AlarmOutlinedIcon className="w-12 h-12 " htmlColor={COLORS.primary} />
-    ),
+    icon: <AlarmOutlinedIcon htmlColor={COLORS.primary} fontSize="large" />,
     text: "Don't waste time waiting in real life queue",
   },
   {
     title: "Just use your devices",
     icon: (
-      <AppShortcutOutlinedIcon
-        className="w-12 h-12"
-        htmlColor={COLORS.primary}
-      />
+      <AppShortcutOutlinedIcon htmlColor={COLORS.primary} fontSize="large" />
     ),
     text: "Use any device you wish, and get in queue online",
   },

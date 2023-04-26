@@ -1,4 +1,4 @@
-import { QueueEvent } from "../utils/types/event-card/QueueEvent.type";
+import { QueueEvent } from "../types/event-card/QueueEvent.type";
 
 export const eventMock: QueueEvent[] = [
   {

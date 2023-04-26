@@ -1,5 +1,5 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
-import { QueueEvent } from "@/shared/utils/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";

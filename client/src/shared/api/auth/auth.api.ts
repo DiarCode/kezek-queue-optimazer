@@ -1,5 +1,5 @@
-import { LoginDTO } from "@/shared/utils/types/auth/login.dto";
-import { SignupDTO } from "@/shared/utils/types/auth/signup.dto";
+import { LoginDTO } from "@/shared/types/auth/login.dto";
+import { SignupDTO } from "@/shared/types/auth/signup.dto";
 
 export const login = (dto: LoginDTO) => {};
 export const signup = (dto: SignupDTO) => {};
