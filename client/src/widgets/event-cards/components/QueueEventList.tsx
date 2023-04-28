@@ -7,12 +7,14 @@ type QueueEventListProps = {
   title: string;
   data: QueueEvent[] | undefined;
   className?: string;
+  horizontal?: boolean;
 };
 
 export const QueueEventList: FC<QueueEventListProps> = ({
   title,
   data,
   className,
+  horizontal = true,
 }) => {
   return (
     <div className={className}>
@@ -20,7 +22,7 @@ export const QueueEventList: FC<QueueEventListProps> = ({
       <FlatList
         data={data || []}
         cb={item => <QueueEventItem key={item.id} data={item} />}
-        horizontal
+        horizontal={horizontal}
         alignCentered={false}
       />
     </div>

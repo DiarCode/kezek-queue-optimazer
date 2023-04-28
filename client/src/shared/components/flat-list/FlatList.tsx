@@ -5,11 +5,13 @@ type FlatListProps<T> = {
   cb: (items: T, index: number) => React.ReactNode;
   horizontal?: boolean;
   alignCentered?: boolean;
+  className?: string;
 };
 
 export const FlatList = <T extends unknown>({
   data,
   cb,
+  className,
   horizontal = false,
   alignCentered = true,
 }: FlatListProps<T>) => {
@@ -21,6 +23,7 @@ export const FlatList = <T extends unknown>({
     <div
       className={`w-full grid grid-cols-fluid gap-x-4 sm:gap-x-6 gap-y-8 scrollbar-hide 
         sm:scrollbar-default items-start pb-7
+        ${className}
         ${horizontal ? "grid-flow-col auto-cols-[296px] overflow-x-auto" : ""}
         ${alignCentered ? "items-center" : "items-start"}
       `}
