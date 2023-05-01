@@ -15,8 +15,8 @@ export const PAGES_LINKS = {
   },
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
-  Partners: { name: "Partners", link: "/partners" },
   Search: { name: "Search", link: "/search" },
+  Notifications: { name: "Notifications", link: "/notifications" },
 };
 
 export const DESKTOP_NAVBAR_LINKS = {
@@ -28,5 +28,5 @@ export const DESKTOP_NAVBAR_LINKS = {
 export const MOBILE_NAVBAR_LINKS = {
   Home: PAGES_LINKS.Home,
   Events: PAGES_LINKS.Events,
-  Partners: PAGES_LINKS.Partners,
+  Search: PAGES_LINKS.Search,
 };

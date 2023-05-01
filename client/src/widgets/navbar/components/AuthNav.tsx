@@ -23,12 +23,12 @@ export const AuthNav = () => {
         </div>
       ) : (
         <div className="flex items-center gap-x-4">
-          <div className="cursor-pointer">
+          <Link href={PAGES_LINKS.Notifications.link}>
             <NotificationsNoneOutlinedIcon
               htmlColor={COLORS.black}
               fontSize="medium"
             />
-          </div>
+          </Link>
 
           <div className="w-8 h-8 cursor-pointer rounded-full bg-primary flex items-center justify-center">
             <p className="text-white text-sm font-semibold">
