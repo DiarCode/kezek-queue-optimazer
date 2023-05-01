@@ -20,8 +20,6 @@ export const Layout: FC<LayoutProps> = ({
   showNavbar = true,
   containerized = true,
 }) => {
-  const { onMountLoading } = useAuth();
-
   const titleText = `${title} - KEZEK`;
 
   const renderedDescription = description ? (

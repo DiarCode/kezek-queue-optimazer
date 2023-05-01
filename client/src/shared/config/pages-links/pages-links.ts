@@ -16,7 +16,6 @@ export const PAGES_LINKS = {
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
   Search: { name: "Search", link: "/search" },
-  Notifications: { name: "Notifications", link: "/notifications" },
 };
 
 export const DESKTOP_NAVBAR_LINKS = {

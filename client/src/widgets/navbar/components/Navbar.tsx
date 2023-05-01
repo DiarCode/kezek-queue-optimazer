@@ -1,6 +1,6 @@
 import { Logo } from "@/shared/components/logo/Logo";
 import React, { FC } from "react";
-import { useNavbar } from "../context/NavbarConextProvider";
+import { useNavbar } from "../hooks/useNavbar";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 import { AuthNav } from "./AuthNav";
@@ -8,13 +8,8 @@ import { AuthNav } from "./AuthNav";
 interface NavbarProps {}
 
 export const Navbar: FC<NavbarProps> = ({}) => {
-  const { visible } = useNavbar();
-
   return (
-    <nav
-      className="sticky top-0 flex z-20 justify-between items-center py-6 bg-white"
-      style={{ display: visible ? "flex" : "none" }}
-    >
+    <nav className="sticky top-0 flex z-20 justify-between items-center py-6 bg-white">
       <Logo />
 
       {/* Appear on mobile screen */}

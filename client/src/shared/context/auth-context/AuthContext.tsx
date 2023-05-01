@@ -13,7 +13,6 @@ interface IAuthContext {
   isAuth: boolean;
   error: string;
   user: User | null;
-  onMountLoading: boolean;
 }
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
@@ -43,9 +42,8 @@ export const AuthContextProvider: FC<PropsWithChildren> = ({ children }) => {
       isAuth: isAuth,
       error: error,
       user: user,
-      onMountLoading: onMountLoading,
     };
-  }, [error, isAuth, onMountLoading, user]);
+  }, [error, isAuth, user]);
 
   const renderedChildren = !onMountLoading && children;
 

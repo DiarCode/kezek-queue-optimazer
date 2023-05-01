@@ -4,35 +4,66 @@ import {
   PropsWithChildren,
   SetStateAction,
   createContext,
-  useContext,
-  useEffect,
+  useCallback,
   useMemo,
   useState,
 } from "react";
 
 interface NavbarContext {
-  visible: boolean;
-  setVisible: Dispatch<SetStateAction<boolean>>;
-
-  mobileMenuOpen: boolean;
-  setMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+  mobileMenu: {
+    open: boolean;
+    setOpen: Dispatch<SetStateAction<boolean>>;
+  };
+  notificationMenu: {
+    open: boolean;
+    setOpen: Dispatch<SetStateAction<boolean>>;
+  };
 }
 
-const NavbarContext = createContext<NavbarContext>({} as NavbarContext);
-export const useNavbar = () => useContext(NavbarContext);
+export const NavbarContext = createContext<NavbarContext>({} as NavbarContext);
 
 export const NavbarContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [notificationMenuOpen, setNotificationMenuOpen] = useState(false);
+
+  const closeAllModals = () => {
+    setMobileMenuOpen(false);
+    setNotificationMenuOpen(false);
+  };
+
+  const setMobileMenuOpenWrapper = useCallback(
+    (state: SetStateAction<boolean>) => {
+      closeAllModals();
+      setMobileMenuOpen(state);
+    },
+    []
+  );
+
+  const setNotificationMenuOpenWrapper = useCallback(
+    (state: SetStateAction<boolean>) => {
+      closeAllModals();
+      setNotificationMenuOpen(state);
+    },
+    []
+  );
 
   const value: NavbarContext = useMemo(() => {
     return {
-      visible,
-      setVisible,
-      mobileMenuOpen,
-      setMobileMenuOpen,
+      mobileMenu: {
+        open: mobileMenuOpen,
+        setOpen: setMobileMenuOpenWrapper,
+      },
+      notificationMenu: {
+        open: notificationMenuOpen,
+        setOpen: setNotificationMenuOpenWrapper,
+      },
     };
-  }, [mobileMenuOpen, visible]);
+  }, [
+    mobileMenuOpen,
+    notificationMenuOpen,
+    setMobileMenuOpenWrapper,
+    setNotificationMenuOpenWrapper,
+  ]);
 
   return (
     <NavbarContext.Provider value={value}>{children}</NavbarContext.Provider>

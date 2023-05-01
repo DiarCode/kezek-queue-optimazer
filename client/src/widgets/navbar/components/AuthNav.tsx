@@ -1,8 +1,7 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import { useAuth } from "@/shared/hooks/useAuth/useAuth";
 import Link from "next/link";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import { COLORS } from "@/shared/constants/colors";
+import { NotificationsNav } from "./NotificationsNav";
 
 export const AuthNav = () => {
   const { isAuth, user } = useAuth();
@@ -22,13 +21,8 @@ export const AuthNav = () => {
           </Link>
         </div>
       ) : (
-        <div className="flex items-center gap-x-4">
-          <Link href={PAGES_LINKS.Notifications.link}>
-            <NotificationsNoneOutlinedIcon
-              htmlColor={COLORS.black}
-              fontSize="medium"
-            />
-          </Link>
+        <div className="flex items-center gap-x-5">
+          <NotificationsNav />
 
           <div className="w-8 h-8 cursor-pointer rounded-full bg-primary flex items-center justify-center">
             <p className="text-white text-sm font-semibold">
