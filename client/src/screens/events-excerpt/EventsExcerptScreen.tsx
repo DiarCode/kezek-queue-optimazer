@@ -90,7 +90,7 @@ export const EventsExcerptScreen = () => {
         </div>
 
         <aside className="sm:relative sm:col-span-1 lg:col-span-2">
-          <div className="w-full sm:sticky sm:top-[80px]  sm:z-20 bg-cgray rounded-xl p-7 mb-5">
+          <div className="w-full sm:sticky sm:top-[80px] sm:z-10 bg-cgray rounded-xl p-7 mb-5">
             <div className="flex flex-col gap-y-5">
               <div>
                 <p className="text-sm text-gray-600 text-center mb-3">
@@ -110,7 +110,7 @@ export const EventsExcerptScreen = () => {
             </div>
           </div>
 
-          <div className="w-full sm:sticky sm:top-[380px] lg:top-[360px] sm:z-20 bg-cgray rounded-xl p-7">
+          <div className="w-full sm:sticky sm:top-[380px] lg:top-[360px] sm:z-10 bg-cgray rounded-xl p-7">
             <div className="flex flex-col gap-y-3">
               <div>
                 <p className="text-sm text-gray-600">Place</p>
