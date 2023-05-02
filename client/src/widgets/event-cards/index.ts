@@ -1,2 +1,2 @@
-export { QueueEventItem } from "./components/QueueEventItem";
-export { QueueEventList } from "./components/QueueEventList";
+export { EventItem } from "./components/EventItem";
+export { EventList } from "./components/EventList";

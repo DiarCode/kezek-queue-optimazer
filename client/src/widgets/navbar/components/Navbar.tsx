@@ -1,5 +1,5 @@
 import { Logo } from "@/shared/components/logo/Logo";
-import React, { FC } from "react";
+import { FC } from "react";
 import { useNavbar } from "../hooks/useNavbar";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";

@@ -1,7 +1,6 @@
 import { Button } from "@/shared/components/ui/buttons/Button";
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import Link from "next/link";
-import React from "react";
 
 const NotFoundScreen = () => {
   return (

@@ -1,11 +1,10 @@
 import { FlatList } from "@/shared/components/flat-list/FlatList";
 import { useEventSearch } from "../hooks/useEventSearch";
-import { QueueEventItem } from "@/widgets/event-cards";
+import { EventItem } from "@/widgets/event-cards";
 import { Spinner } from "@/shared/components/spinner/Spinner";
 
 export const SearchEventsList = () => {
   const { data, loading } = useEventSearch();
-  console.log(loading);
 
   return (
     <>
@@ -16,7 +15,7 @@ export const SearchEventsList = () => {
       ) : (
         <FlatList
           data={data || []}
-          cb={item => <QueueEventItem key={item.id} data={item} />}
+          cb={item => <EventItem key={item.id} data={item} />}
         />
       )}
     </>

@@ -2,7 +2,6 @@ import { DESKTOP_NAVBAR_LINKS } from "@/shared/config/pages-links/pages-links";
 import { COLORS } from "@/shared/constants/colors";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
 
 const selectedRouteStyle = { color: COLORS.primary };
 const defaultRouteStyle = { color: COLORS.black };

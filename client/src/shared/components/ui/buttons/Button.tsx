@@ -1,5 +1,5 @@
 import { COLORS } from "@/shared/constants/colors";
-import React, { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 
 interface ButtonProps
   extends PropsWithChildren,

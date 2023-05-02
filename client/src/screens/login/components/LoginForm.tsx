@@ -4,7 +4,6 @@ import { Text } from "@/shared/components/ui/text/Text";
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import { LoginDTO } from "@/shared/types/auth/login.dto";
 import Link from "next/link";
-import React from "react";
 import { useForm } from "react-hook-form";
 
 export const LoginForm = () => {

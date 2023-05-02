@@ -11,11 +11,16 @@ export const PAGES_LINKS = {
   Events: {
     name: "Events",
     link: "/events",
-    sub_links: { Event: (id: string) => `/events/${id}` },
+    sub_links: { EventExcerpt: (id: string) => `/events/${id}` },
   },
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
   Search: { name: "Search", link: "/search" },
+  Queues: {
+    name: "Queues",
+    link: "/queues",
+    sub_links: { QueueExcerpt: (id: string) => `/queues/${id}` },
+  },
 };
 
 export const DESKTOP_NAVBAR_LINKS = {

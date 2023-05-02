@@ -1,24 +1,24 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
-import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
+import { Event } from "@/shared/types/event-card/QueueEvent.type";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { getFormattedDescription } from "../utils/get-formatted-descr";
 
-interface QueueEventItemsProps {
-  data: QueueEvent;
+interface EventItemsProps {
+  data: Event;
 }
 
 const MAX_DESCR_SIZE = 60;
 
-export const QueueEventItem: FC<QueueEventItemsProps> = ({ data }) => {
+export const EventItem: FC<EventItemsProps> = ({ data }) => {
   const [formattedDescr, formattedDate] = getFormattedDescription({
     text: data.description,
     date: data.date,
     maxSize: MAX_DESCR_SIZE,
   });
 
-  const eventLink = `${PAGES_LINKS.Events.link}/${data.id}`;
+  const eventLink = PAGES_LINKS.Events.sub_links.EventExcerpt(`${data.id}`);
 
   return (
     <div className="w-full bg-cgray rounded-2xl">

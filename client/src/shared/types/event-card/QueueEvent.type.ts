@@ -1,4 +1,4 @@
-export type QueueEvent = {
+export type Event = {
   id: number;
   title: string;
   img: string;
