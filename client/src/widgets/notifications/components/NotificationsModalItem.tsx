@@ -12,8 +12,8 @@ export const NotificationsModalItem = () => {
         <div className="flex items-start gap-x-3 p-2">
           <span className="w-[10px] h-[10px] bg-primary rounded-full mt-[6px]" />
 
-          <div>
-            <p className="text-sm text-black font-medium flex-1">
+          <div className="flex-1">
+            <p className="text-sm text-black font-medium">
               Your queue on the{" "}
               <span className="font-semibold">Astana Hub Event</span> comes up
               in 15 minutes

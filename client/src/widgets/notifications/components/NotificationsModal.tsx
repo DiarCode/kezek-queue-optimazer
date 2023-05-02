@@ -14,7 +14,7 @@ export const NotificationsModal: FC<INotificationsModalProps> = ({
 }) => {
   return (
     <div
-      className={`overflow-x-hidden z-50 flex absolute top-[82px] md:top-[86px] inset-0 md:right-2 h-screen
+      className={`z-50 flex absolute top-[82px] md:top-[86px] right-0 md:right-2
          justify-end transition-all duration-300 ease`}
       style={{ visibility: showModal ? "visible" : "hidden" }}
     >
