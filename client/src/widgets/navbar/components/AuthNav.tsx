@@ -1,10 +1,11 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import { useAuth } from "@/shared/hooks/useAuth/useAuth";
 import Link from "next/link";
-import { NotificationsNav } from "./NotificationsNav";
+import { NotificationsNav } from "./notifications/NotificationsNav";
+import { ProfileNav } from "./profile/ProfileNav";
 
 export const AuthNav = () => {
-  const { isAuth, user } = useAuth();
+  const { isAuth } = useAuth();
 
   return (
     <>
@@ -24,11 +25,7 @@ export const AuthNav = () => {
         <div className="flex items-center gap-x-5">
           <NotificationsNav />
 
-          <div className="w-8 h-8 cursor-pointer rounded-full bg-primary flex items-center justify-center">
-            <p className="text-white text-sm font-semibold">
-              {user?.name.charAt(0)}
-            </p>
-          </div>
+          <ProfileNav />
         </div>
       )}
     </>

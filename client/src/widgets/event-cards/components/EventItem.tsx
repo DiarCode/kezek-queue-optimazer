@@ -18,7 +18,9 @@ export const EventItem: FC<EventItemsProps> = ({ data }) => {
     maxSize: MAX_DESCR_SIZE,
   });
 
-  const eventLink = PAGES_LINKS.Events.sub_links.EventExcerpt(`${data.id}`);
+  const eventLink = PAGES_LINKS.Events.sub_links.EventExcerpt.link(
+    `${data.id}`
+  );
 
   return (
     <div className="w-full bg-cgray rounded-2xl">

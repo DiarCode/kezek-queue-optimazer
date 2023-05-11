@@ -1,7 +1,7 @@
 import { COLORS } from "@/shared/constants/colors";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import { useNavbar } from "../hooks/useNavbar";
-import { NotificationsModal } from "@/widgets/notifications";
+import { useNavbar } from "../../hooks/useNavbar";
+import { NotificationsModal } from "./NotificationsModal";
 
 export const NotificationsNav = () => {
   const {

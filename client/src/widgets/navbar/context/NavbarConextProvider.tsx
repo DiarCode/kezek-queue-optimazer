@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 
-interface NavbarContext {
+interface INavbarContext {
   mobileMenu: {
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
@@ -18,17 +18,25 @@ interface NavbarContext {
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
   };
+  profileMenu: {
+    open: boolean;
+    setOpen: Dispatch<SetStateAction<boolean>>;
+  };
 }
 
-export const NavbarContext = createContext<NavbarContext>({} as NavbarContext);
+export const NavbarContext = createContext<INavbarContext>(
+  {} as INavbarContext
+);
 
 export const NavbarContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notificationMenuOpen, setNotificationMenuOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
   const closeAllModals = () => {
     setMobileMenuOpen(false);
     setNotificationMenuOpen(false);
+    setProfileMenuOpen(false);
   };
 
   const setMobileMenuOpenWrapper = useCallback(
@@ -47,7 +55,15 @@ export const NavbarContextProvider: FC<PropsWithChildren> = ({ children }) => {
     []
   );
 
-  const value: NavbarContext = useMemo(() => {
+  const setProfileMenuOpenWrapper = useCallback(
+    (state: SetStateAction<boolean>) => {
+      closeAllModals();
+      setProfileMenuOpen(state);
+    },
+    []
+  );
+
+  const value: INavbarContext = useMemo(() => {
     return {
       mobileMenu: {
         open: mobileMenuOpen,
@@ -57,12 +73,18 @@ export const NavbarContextProvider: FC<PropsWithChildren> = ({ children }) => {
         open: notificationMenuOpen,
         setOpen: setNotificationMenuOpenWrapper,
       },
+      profileMenu: {
+        open: profileMenuOpen,
+        setOpen: setProfileMenuOpenWrapper,
+      },
     };
   }, [
     mobileMenuOpen,
     notificationMenuOpen,
+    profileMenuOpen,
     setMobileMenuOpenWrapper,
     setNotificationMenuOpenWrapper,
+    setProfileMenuOpenWrapper,
   ]);
 
   return (

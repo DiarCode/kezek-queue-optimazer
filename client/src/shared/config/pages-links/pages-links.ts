@@ -11,7 +11,16 @@ export const PAGES_LINKS = {
   Events: {
     name: "Events",
     link: "/events",
-    sub_links: { EventExcerpt: (id: string) => `/events/${id}` },
+    sub_links: {
+      EventExcerpt: {
+        name: "Event Excerpt",
+        link: (id: string) => `/events/${id}}`,
+      },
+      EventDashboard: {
+        name: "Event Dashboard",
+        link: (id: string) => `/events/${id}/dashboard`,
+      },
+    },
   },
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
@@ -33,4 +42,9 @@ export const MOBILE_NAVBAR_LINKS = {
   Home: PAGES_LINKS.Home,
   Events: PAGES_LINKS.Events,
   Search: PAGES_LINKS.Search,
+};
+
+export const PROFILE_NAVBAR_LINKS = {
+  Profile: PAGES_LINKS.Profile,
+  Queues: PAGES_LINKS.Queues,
 };

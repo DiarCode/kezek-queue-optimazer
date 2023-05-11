@@ -7,7 +7,7 @@ import { AuthNav } from "./AuthNav";
 
 interface NavbarProps {}
 
-export const Navbar: FC<NavbarProps> = ({}) => {
+export const Navbar: FC<NavbarProps> = () => {
   return (
     <nav className="sticky top-0 flex z-20 justify-between items-center py-6 bg-white">
       <Logo />

@@ -1,4 +1,4 @@
-import { QueuesExcerptScreen } from "@/screens/queue/QueueExcerptScreen";
+import { QueuesExcerptScreen } from "@/screens/queue-excerpt/QueueExcerptScreen";
 
 const QueuesExcerptPage = () => {
   return <QueuesExcerptScreen />;

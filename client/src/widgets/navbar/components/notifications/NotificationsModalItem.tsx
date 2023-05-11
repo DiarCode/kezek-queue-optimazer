@@ -1,6 +1,4 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
-import { COLORS } from "@/shared/constants/colors";
-import CircleIcon from "@mui/icons-material/Circle";
 import Link from "next/link";
 
 export const NotificationsModalItem = () => {
