@@ -1,12 +1,12 @@
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
-import { Event } from "@/shared/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { getFormattedDescription } from "../utils/get-formatted-descr";
 
 interface EventItemsProps {
-  data: Event;
+  data: QueueEvent;
 }
 
 const MAX_DESCR_SIZE = 60;

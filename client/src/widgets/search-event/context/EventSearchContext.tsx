@@ -1,5 +1,5 @@
 import { eventMock } from "@/shared/mock/eventMock";
-import { Event } from "@/shared/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
 import {
   Dispatch,
   FC,
@@ -11,7 +11,7 @@ import {
 } from "react";
 
 interface IEventSearchContext {
-  data: Event[] | null;
+  data: QueueEvent[] | null;
   loading: boolean;
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
@@ -28,7 +28,7 @@ export const SearchEventContextProvider: FC<PropsWithChildren> = ({
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<Event[] | null>(null);
+  const [data, setData] = useState<QueueEvent[] | null>(null);
   const [error, setError] = useState("");
 
   const onSearchSubmit = async () => {
