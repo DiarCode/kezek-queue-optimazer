@@ -6,7 +6,7 @@ interface TextProps {
   text: string;
 }
 
-export const Text: FC<TextProps> = ({ className, required = false, text }) => {
+export const Label: FC<TextProps> = ({ className, required = false, text }) => {
   return (
     <div className="flex items-start gap-x-1">
       <p className={`text-sm ${className}`}>{text}</p>

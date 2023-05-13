@@ -3,8 +3,6 @@ import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import { useParams } from "@/shared/hooks/useParams/useParams";
 import { useQueueEvent } from "@/shared/hooks/useQueueEvents/useQueueEvents";
 import { Layout } from "@/shared/layouts/Layout";
-import Link from "next/link";
-import { EventNotFound } from "./components/EventNotFound/EventNotFound";
 import Image from "next/image";
 
 const DEFAULT_PAGE_TITLE = "Event";

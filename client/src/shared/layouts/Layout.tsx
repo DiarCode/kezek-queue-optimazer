@@ -1,6 +1,7 @@
 import { Navbar } from "@/widgets/navbar";
 import Head from "next/head";
 import { FC, PropsWithChildren } from "react";
+import { AlertNotification } from "@/widgets/alert-notification";
 
 interface LayoutProps extends PropsWithChildren {
   title: string;
@@ -42,6 +43,8 @@ export const Layout: FC<LayoutProps> = ({
         {showNavbar && <Navbar />}
         {children}
       </main>
+
+      <AlertNotification />
     </div>
   );
 };
