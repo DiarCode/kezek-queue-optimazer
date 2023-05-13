@@ -1,9 +1,9 @@
 import { Layout } from "@/shared/layouts/Layout";
 import { QueueExcerptBefore } from "./components/QueueExcerptBefore";
 
-export const QueuesExcerptScreen = () => {
+export const ProfileQueuesExcerptScreen = () => {
   return (
-    <Layout title="Queue">
+    <Layout title="My Queue">
       <QueueExcerptBefore />
     </Layout>
   );

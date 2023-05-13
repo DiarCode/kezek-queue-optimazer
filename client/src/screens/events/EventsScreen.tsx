@@ -1,7 +1,7 @@
 import { FlatList } from "@/shared/components/flat-list/FlatList";
 import { useQueueEvents } from "@/shared/hooks/useQueueEvents/useQueueEvents";
 import { Layout } from "@/shared/layouts/Layout";
-import { EventItem } from "@/widgets/event-cards";
+import { EventItem, EventList } from "@/widgets/event-cards";
 import { EventsScreenTitle } from "./components/events-screen-title/EventsScreenTitle";
 import EventsScreenFilter from "./components/filter/EventsScreenFilter";
 
@@ -15,10 +15,7 @@ export const EventsScreen = () => {
         <EventsScreenFilter />
       </section>
 
-      <FlatList
-        data={data || []}
-        cb={item => <EventItem key={item.id} data={item} />}
-      />
+      <EventList data={data || []} horizontal={false} />
     </Layout>
   );
 };

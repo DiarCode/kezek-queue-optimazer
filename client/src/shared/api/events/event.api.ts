@@ -1,5 +1,5 @@
 import { eventMock } from "@/shared/mock/eventMock";
-import { QueueEvent } from "@/shared/types/event-card/QueueEvent.type";
+import { QueueEvent } from "@/shared/types/event/QueueEvent.type";
 
 export const getAllEvents = async (): Promise<QueueEvent[]> => {
   return eventMock;

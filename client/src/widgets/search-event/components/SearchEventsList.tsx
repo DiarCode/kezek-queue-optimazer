@@ -1,7 +1,7 @@
 import { FlatList } from "@/shared/components/flat-list/FlatList";
 import { useEventSearch } from "../hooks/useEventSearch";
 import { EventItem } from "@/widgets/event-cards";
-import { Spinner } from "@/shared/components/spinner/Spinner";
+import { Spinner } from "@/shared/components/ui/spinner/Spinner";
 
 export const SearchEventsList = () => {
   const { data, loading } = useEventSearch();

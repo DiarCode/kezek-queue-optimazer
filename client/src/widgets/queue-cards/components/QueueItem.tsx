@@ -11,16 +11,17 @@ interface EventItemsProps {
 
 const MAX_DESCR_SIZE = 60;
 
-export const EventItem: FC<EventItemsProps> = ({ data }) => {
+export const QueueItem: FC<EventItemsProps> = ({ data }) => {
   const [formattedDescr, formattedDate] = getFormattedDescription({
     text: data.description,
     date: data.date,
     maxSize: MAX_DESCR_SIZE,
   });
 
-  const eventLink = PAGES_LINKS.Events.sub_links.EventExcerpt.link(
-    `${data.id}`
-  );
+  const eventLink =
+    PAGES_LINKS.Profile.sub_links.MyQueues.sub_links.MyQueuesExcerpt.link(
+      `${data.id}`
+    );
 
   return (
     <div className="w-full bg-cgray rounded-2xl">

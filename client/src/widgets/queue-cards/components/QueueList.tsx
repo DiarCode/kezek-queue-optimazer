@@ -1,29 +1,24 @@
 import { FlatList } from "@/shared/components/flat-list/FlatList";
 import { FC } from "react";
-import { EventItem } from "./EventItem";
-import { QueueEvent } from "@/shared/types/event/QueueEvent.type";
+import { QueueItem } from "./QueueItem";
+import { Queue } from "@/shared/types/queue/Queue.type";
 
 type QueueEventListProps = {
-  title?: string;
-  data: QueueEvent[] | undefined;
+  data: Queue[] | undefined;
   className?: string;
   horizontal?: boolean;
 };
 
-export const EventList: FC<QueueEventListProps> = ({
-  title,
+export const QueueList: FC<QueueEventListProps> = ({
   data,
   className,
   horizontal = true,
 }) => {
   return (
     <div className={className}>
-      {title && (
-        <h1 className="text-base sm:text-lg font-semibold mb-3">{title}</h1>
-      )}
       <FlatList
         data={data || []}
-        cb={item => <EventItem key={item.id} data={item} />}
+        cb={item => <QueueItem key={item.event.id} data={item.event} />}
         horizontal={horizontal}
         alignCentered={false}
       />

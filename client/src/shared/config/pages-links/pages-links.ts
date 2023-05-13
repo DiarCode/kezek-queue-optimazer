@@ -1,20 +1,29 @@
-// type PagesLinksType = { [key: string]: IPagesValue };
-
-// interface IPagesValue {
-//   name: string;
-//   link: string;
-// }
-
 export const PAGES_LINKS = {
   Home: { name: "Home", link: "/" },
-  Profile: { name: "Profile", link: "/profile" },
+  Profile: {
+    name: "Profile",
+    link: "/profile",
+    sub_links: {
+      MyEvents: { name: "My Events", link: "/profile/events" },
+      MyQueues: {
+        name: "My Queues",
+        link: "/profile/queues",
+        sub_links: {
+          MyQueuesExcerpt: {
+            name: "My Queues Excerpt",
+            link: (id: string) => `/profile/queues/${id}`,
+          },
+        },
+      },
+    },
+  },
   Events: {
     name: "Events",
     link: "/events",
     sub_links: {
       EventExcerpt: {
         name: "Event Excerpt",
-        link: (id: string) => `/events/${id}}`,
+        link: (id: string) => `/events/${id}`,
       },
       EventDashboard: {
         name: "Event Dashboard",
@@ -25,11 +34,6 @@ export const PAGES_LINKS = {
   Login: { name: "Login", link: "/login" },
   Signup: { name: "Signup", link: "/signup" },
   Search: { name: "Search", link: "/search" },
-  Queues: {
-    name: "Queues",
-    link: "/queues",
-    sub_links: { QueueExcerpt: (id: string) => `/queues/${id}` },
-  },
 };
 
 export const DESKTOP_NAVBAR_LINKS = {
@@ -46,5 +50,6 @@ export const MOBILE_NAVBAR_LINKS = {
 
 export const PROFILE_NAVBAR_LINKS = {
   Profile: PAGES_LINKS.Profile,
-  Queues: PAGES_LINKS.Queues,
+  MyEvents: PAGES_LINKS.Profile.sub_links.MyEvents,
+  MyQueues: PAGES_LINKS.Profile.sub_links.MyQueues,
 };

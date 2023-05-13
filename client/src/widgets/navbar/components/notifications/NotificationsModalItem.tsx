@@ -2,7 +2,8 @@ import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import Link from "next/link";
 
 export const NotificationsModalItem = () => {
-  const queueLink = PAGES_LINKS.Queues.sub_links.QueueExcerpt("2");
+  const queueLink =
+    PAGES_LINKS.Profile.sub_links.MyQueues.sub_links.MyQueuesExcerpt.link("2");
 
   return (
     <Link href={queueLink}>

@@ -1,3 +1,4 @@
+import { Title } from "@/shared/components/ui/title/Title";
 import { Layout } from "@/shared/layouts/Layout";
 import {
   SearchEventContextProvider,
@@ -10,9 +11,7 @@ export const SearchScreen = () => {
     <SearchEventContextProvider>
       <Layout title="Search" description="Find your favorite events in Kezek">
         <div className="flex flex-col items-center mt-0 sm:mt-6">
-          <h1 className="text-lg md:text-2xl font-bold mb-3 md:mb-4">
-            Use the form to find Event
-          </h1>
+          <Title content="Use the form to find Event" className="mb-3 md:mb-4" centered />
 
           <SearchInput />
 
