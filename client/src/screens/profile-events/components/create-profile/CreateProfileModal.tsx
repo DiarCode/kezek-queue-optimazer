@@ -33,7 +33,7 @@ export const CreateProfileModal: FC<CreateProfileModalProps> = ({
     >
       <form
         onSubmit={handleSubmit(onCreateProfileFormSubmit)}
-        className="flex flex-col gap-y-6 mb-7"
+        className="flex flex-col gap-y-6"
       >
         <InputField
           label="Title"

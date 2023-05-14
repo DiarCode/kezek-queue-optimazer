@@ -9,7 +9,7 @@ export const SearchEventsList = () => {
   return (
     <>
       {loading ? (
-        <div className="text-xl font-bold">
+        <div className="text-xl font-bold mt-12">
           <Spinner />
         </div>
       ) : (

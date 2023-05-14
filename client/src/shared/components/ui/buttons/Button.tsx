@@ -18,8 +18,8 @@ export const Button = ({
     ? { backgroundColor: COLORS.primary, color: "white" }
     : {};
 
-  const buttonClassName = `px-5 py-2 border-solid border-2 
-      rounded-xl flex items-center justify-center text-sm ${className}`;
+  const buttonClassName = `px-5 py-2 border-solid border-2 rounded-xl text-sm hover:bg-primary 
+      hover:text-white transition-all duration-300 ${className} flex items-center justify-center `;
 
   return (
     <button

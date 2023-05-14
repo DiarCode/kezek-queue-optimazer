@@ -4,7 +4,16 @@ export const PAGES_LINKS = {
     name: "Profile",
     link: "/profile",
     sub_links: {
-      MyEvents: { name: "My Events", link: "/profile/events" },
+      MyEvents: {
+        name: "My Events",
+        link: "/profile/events",
+        sub_links: {
+          MyEventExcerpt: {
+            name: "My Event Excerpt",
+            link: (id: string) => `/profile/events/${id}`,
+          },
+        },
+      },
       MyQueues: {
         name: "My Queues",
         link: "/profile/queues",

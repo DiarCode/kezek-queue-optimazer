@@ -7,23 +7,23 @@ import { getFormattedDescription } from "../utils/get-formatted-descr";
 
 interface EventItemsProps {
   data: QueueEvent;
+  link?: string;
 }
 
 const MAX_DESCR_SIZE = 60;
 
-export const EventItem: FC<EventItemsProps> = ({ data }) => {
+export const EventItem: FC<EventItemsProps> = ({ data, link }) => {
   const [formattedDescr, formattedDate] = getFormattedDescription({
     text: data.description,
     date: data.date,
     maxSize: MAX_DESCR_SIZE,
   });
 
-  const eventLink = PAGES_LINKS.Events.sub_links.EventExcerpt.link(
-    `${data.id}`
-  );
+  const eventLink =
+    link || PAGES_LINKS.Events.sub_links.EventExcerpt.link(`${data.id}`);
 
   return (
-    <div className="w-full bg-cgray rounded-2xl">
+    <div className="w-full hover:bg-gray-100 transition-all duration-300 rounded-2xl pb-5">
       <Link href={eventLink}>
         <div className="relative h-[182px] sm:h-[172px]">
           <Image
@@ -35,7 +35,7 @@ export const EventItem: FC<EventItemsProps> = ({ data }) => {
         </div>
       </Link>
 
-      <div className="mt-3 px-4 pb-5">
+      <div className="mt-3 px-3">
         <Link href={eventLink}>
           <h1
             className="text-sm sm:text-base text-black font-semibold truncate
@@ -49,7 +49,7 @@ export const EventItem: FC<EventItemsProps> = ({ data }) => {
           {formattedDescr}
         </p>
 
-        <p className="mt-3 text-primary_light text-xs">{formattedDate}</p>
+        <p className="mt-3 text-primary text-xs">{formattedDate}</p>
       </div>
     </div>
   );

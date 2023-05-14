@@ -6,6 +6,7 @@ import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
 import Image from "next/image";
 import { Logo } from "@/shared/components/logo/Logo";
 import { COLORS } from "@/shared/constants/colors";
+import { AuthBanner } from "@/shared/components/banner/AuthBanner";
 
 interface LoginProps {}
 
@@ -18,30 +19,13 @@ export const LoginScreen: FC<LoginProps> = ({}) => {
       title="Log In"
       showNavbar={false}
       containerized={false}
-      className="bg-gray-100 grid grid-cols-2 grid-flow-row p-0"
+      className="bg-white grid grid-cols-2 grid-flow-row"
+      style={{ padding: 0 }}
     >
-      <div
-        className="hidden sm:block w-full h-full col-span-1
-        relative"
-      >
-        <Image
-          alt="login"
-          className="object-cover"
-          fill
-          priority
-          src={LOGIN_IMAGE_URL}
-        />
-
-        <div className="absolute top-10 left-10 w-1/3">
-          <Logo size="large" color={COLORS.primary} />
-          <p className="mt-6">
-            The modern way to save your time just in one app
-          </p>
-        </div>
-      </div>
+      <AuthBanner src={LOGIN_IMAGE_URL} />
 
       <div className="col-span-2 sm:col-span-1 w-full p-3 flex flex-col items-center justify-center">
-        <main className="w-full lg:w-1/2 p-7 bg-white">
+        <main className="w-full lg:w-1/2 sm:p-3 bg-white">
           <p className="text-lg sm:text-2xl font-semibold mb-7 text-center">
             Welcome Back
           </p>

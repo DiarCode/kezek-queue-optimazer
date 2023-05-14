@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { useState } from "react";
 
 import bannerImage from "@/shared/assets/banner.jpg";
 import { Button } from "../ui/buttons/Button";
 
-const Banner = () => {
+export const HomeBanner = () => {
   return (
     <div className="block w-full h-[150px] sm:h-[300px] lg:h-[400px] relative">
       <Image
@@ -36,5 +35,3 @@ const Banner = () => {
     </div>
   );
 };
-
-export default Banner;

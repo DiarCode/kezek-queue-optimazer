@@ -1,5 +1,5 @@
 import { getAllEvents } from "@/shared/api/events/event.api";
-import Banner from "@/shared/components/banner/Banner";
+import { HomeBanner } from "@/shared/components/banner/HomeBanner";
 import { Layout } from "@/shared/layouts/Layout";
 import { EventList } from "@/widgets/event-cards";
 import { useQuery } from "@tanstack/react-query";
@@ -16,7 +16,7 @@ export const HomeScreen: FC<HomeScreen> = ({}) => {
 
   return (
     <Layout title="Home">
-      <Banner />
+      <HomeBanner />
       <EventList className="mt-10" title="Recent Events" data={data} />
       <OurOffer />
       <EventList className="mt-10" title="Popular Events" data={data} />

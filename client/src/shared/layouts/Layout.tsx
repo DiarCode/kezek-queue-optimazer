@@ -1,6 +1,6 @@
 import { Navbar } from "@/widgets/navbar";
 import Head from "next/head";
-import { FC, PropsWithChildren } from "react";
+import { CSSProperties, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { AlertNotification } from "@/widgets/alert-notification";
 
 interface LayoutProps extends PropsWithChildren {
@@ -9,6 +9,7 @@ interface LayoutProps extends PropsWithChildren {
   className?: string;
   showNavbar?: boolean;
   containerized?: boolean;
+  style?: CSSProperties;
 }
 
 export const Layout: FC<LayoutProps> = ({
@@ -18,6 +19,7 @@ export const Layout: FC<LayoutProps> = ({
   className,
   showNavbar = true,
   containerized = true,
+  style = {},
 }) => {
   const titleText = `${title} - KEZEK`;
 
@@ -36,9 +38,9 @@ export const Layout: FC<LayoutProps> = ({
       </Head>
 
       <main
-        className={`w-screen min-h-screen relative overflow-clip bg-white font-montserrat text-sm sm:text-base mx-auto px-3 pb-10 ${
-          containerized && "container"
-        } ${className}`}
+        className={`w-screen min-h-screen relative overflow-clip bg-white font-montserrat text-sm sm:text-base 
+          mx-auto px-3 pb-10 ${containerized && "container"} ${className}`}
+        style={style}
       >
         {showNavbar && <Navbar />}
         {children}
