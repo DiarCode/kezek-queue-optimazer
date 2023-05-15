@@ -3,12 +3,9 @@ import { HomeBanner } from "@/shared/components/banner/HomeBanner";
 import { Layout } from "@/shared/layouts/Layout";
 import { EventList } from "@/widgets/event-cards";
 import { useQuery } from "@tanstack/react-query";
-import { FC } from "react";
 import { OurOffer } from "./components/OurOffer";
 
-interface HomeScreen {}
-
-export const HomeScreen: FC<HomeScreen> = ({}) => {
+export const HomeScreen = () => {
   const { data } = useQuery({
     queryKey: ["recent-events"],
     queryFn: getAllEvents,

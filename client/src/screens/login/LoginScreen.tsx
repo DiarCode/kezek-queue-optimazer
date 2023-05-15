@@ -3,9 +3,6 @@ import { FC } from "react";
 import { LoginForm } from "./components/LoginForm";
 import Link from "next/link";
 import { PAGES_LINKS } from "@/shared/config/pages-links/pages-links";
-import Image from "next/image";
-import { Logo } from "@/shared/components/logo/Logo";
-import { COLORS } from "@/shared/constants/colors";
 import { AuthBanner } from "@/shared/components/banner/AuthBanner";
 
 interface LoginProps {}

@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package users;
+
+option go_package = "github.com/DiarCode/kezek-queue-optimazer/users/gen";
+
