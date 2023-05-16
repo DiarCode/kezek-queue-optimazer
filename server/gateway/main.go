@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/bootstrap"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	bootstrap.InitApp()
 }
