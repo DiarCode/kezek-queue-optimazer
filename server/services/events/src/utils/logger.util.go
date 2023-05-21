@@ -9,6 +9,10 @@ import (
 
 var Logger *zap.Logger
 
+const (
+	context = "[Event]"
+)
+
 func InitLogger() {
 	Logger, err := zap.NewProduction()
 
@@ -20,17 +24,17 @@ func InitLogger() {
 }
 
 func LoggerInfo(msg string) {
-	Logger.Info(fmt.Sprintf("[User] %v", msg))
+	Logger.Info(fmt.Sprintf("%v %v", context, msg))
 }
 
 func LoggerInfof(msg string, args ...interface{}) {
-	Logger.Sugar().Infof(fmt.Sprintf("[User] %v", msg), args)
+	Logger.Sugar().Infof(fmt.Sprintf("%v %v", context, msg), args)
 }
 
 func LoggerFatalf(msg string, args ...interface{}) {
-	Logger.Sugar().Fatalf(fmt.Sprintf("[User] %v", msg), args)
+	Logger.Sugar().Fatalf(fmt.Sprintf("%v %v", context, msg), args)
 }
 
 func LoggerFatal(msg string) {
-	Logger.Fatal(fmt.Sprintf("[User] %v", msg))
+	Logger.Fatal(fmt.Sprintf("%v %v", context, msg))
 }
