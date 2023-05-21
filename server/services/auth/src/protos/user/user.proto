@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package users;
 
-option go_package = "github.com/DiarCode/kezek-queue-optimazer/users/gen";
+option go_package = "./src/gen/user";
 
 message User {
     int64 id = 1;

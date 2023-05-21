@@ -10,7 +10,7 @@ var Logger *zap.Logger
 
 func InitLogger() {
 	Logger, err := zap.NewProduction()
-
+	
 	if err != nil {
 		log.Fatalf("Failed to initialize logger: %v", err)
 	}

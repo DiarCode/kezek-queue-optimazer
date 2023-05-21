@@ -2,10 +2,11 @@ syntax = "proto3";
 
 package users;
 
-option go_package = "github.com/DiarCode/kezek-queue-optimazer/users/gen";
+option go_package = "./src/gen/auth";
 
 service AuthService {
     rpc Login(LoginRequest) returns (AuthResponse);
+    rpc Signup(SignupRequest) returns (AuthResponse);
 }
 
 message LoginRequest {
