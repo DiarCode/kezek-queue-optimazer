@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package queuepb;
+
+option go_package = "./src/gen/queue";
+
+import "google/protobuf/timestamp.proto";
+
+service QueueService {
+    rpc CreateQueue(CreateQueueRequest) returns (Queue);
+}
+
+message Queue {
+    string Id = 1;
+    int64 eventId = 2;
+    repeated QueueItem queueItems = 3;
+}
+
+message QueueItem {
+    int64 id = 1;
+    int64 userId = 2;
+    int32 position = 3;
+    bool isCurrent = 4; 
+    google.protobuf.Timestamp enteredAt = 5;  
+}
+
+message CreateQueueRequest {
+    int64 eventId = 1;
+}
+
+message EmptyRequest {}

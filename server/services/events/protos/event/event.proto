@@ -12,6 +12,8 @@ service EventService {
     rpc GetEventById(GetEventByIdRequest) returns (Event);
 }
 
+//TODO: Add field to track aprox waiting time
+
 message Event {
     int64 id = 1;
     string title = 2;     
