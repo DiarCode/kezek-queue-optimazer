@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: protos/event/event.proto
 
-package event
+package eventpb
 
 import (
 	context "context"
@@ -69,7 +69,6 @@ type EventServiceServer interface {
 	CreateEvent(context.Context, *CreateEventRequest) (*Event, error)
 	GetAllEvents(context.Context, *EmptyRequest) (*GetAllEventsResponse, error)
 	GetEventById(context.Context, *GetEventByIdRequest) (*Event, error)
-	mustEmbedUnimplementedEventServiceServer()
 }
 
 // UnimplementedEventServiceServer must be embedded to have forward compatible implementations.
