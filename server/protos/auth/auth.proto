@@ -2,7 +2,8 @@ syntax = "proto3";
 
 package users;
 
-option go_package = "./src/gen/auth";
+option go_package = "./gen/auth";
+
 
 service AuthService {
     rpc Login(LoginRequest) returns (AuthResponse);
