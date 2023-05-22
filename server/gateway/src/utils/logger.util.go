@@ -7,13 +7,13 @@ import (
 	"go.uber.org/zap"
 )
 
-var logger *zap.Logger
+var Logger *zap.Logger
 
 const (
 	context = "[Gateway]"
 )
 
-func InitLogger() {
+func InitLogger() *zap.Logger {
 	logger, err := zap.NewProduction()
 
 	if err != nil {
@@ -21,20 +21,29 @@ func InitLogger() {
 	}
 
 	defer logger.Sync()
+	return logger
 }
 
 func LoggerInfo(msg string) {
-	logger.Info(fmt.Sprintf("%v %v", context, msg))
+	Logger.Info(fmt.Sprintf("%v %v", context, msg))
 }
 
 func LoggerInfof(msg string, args ...interface{}) {
-	logger.Sugar().Infof(fmt.Sprintf("%v %v", context, msg), args)
+	Logger.Sugar().Infof(fmt.Sprintf("%v %v", context, msg), args)
+}
+
+func LoggerError(msg string) {
+	Logger.Error(fmt.Sprintf("%v %v", context, msg))
+}
+
+func LoggerErrorf(msg string, args ...interface{}) {
+	Logger.Sugar().Errorf(fmt.Sprintf("%v %v", context, msg), args)
 }
 
 func LoggerFatalf(msg string, args ...interface{}) {
-	logger.Sugar().Fatalf(fmt.Sprintf("%v %v", context, msg), args)
+	Logger.Sugar().Fatalf(fmt.Sprintf("%v %v", context, msg), args)
 }
 
 func LoggerFatal(msg string) {
-	logger.Fatal(fmt.Sprintf("%v %v", context, msg))
+	Logger.Fatal(fmt.Sprintf("%v %v", context, msg))
 }

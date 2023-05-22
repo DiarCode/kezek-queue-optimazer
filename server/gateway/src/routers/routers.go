@@ -2,6 +2,7 @@ package routers
 
 import (
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/controllers"
+	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -27,8 +28,13 @@ func NewRouter() *gin.Engine {
 	api := r.Group("/api/v1")
 
 	// Auth
-	api.POST("/login", Controllers.Auth.Login)
-	api.POST("/signup", Controllers.Auth.Signup)
+	api.POST("/auth/login", Controllers.Auth.Login)
+	api.POST("/auth/signup", Controllers.Auth.Signup)
+
+	api.GET("/", func(c *gin.Context) {
+		utils.LoggerInfo("Entered into home page")
+		utils.SendJson(c, 200, "Hello World")
+	})
 
 	return r
 }
