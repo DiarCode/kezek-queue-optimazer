@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/routers"
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/utils"
@@ -17,10 +16,10 @@ func main() {
 
 	router := routers.NewRouter()
 
-	utils.Logger.Sugar().Infof("Running http server listening on %v", port)
+	utils.LoggerInfof("Running http server listening on port %v", port)
 	err := router.Run(fmt.Sprintf(":%v", port))
 	if err != nil {
-		log.Fatal(err)
+		utils.LoggerFatalf("Failed to run server: %v", err)
 	}
 
 }
