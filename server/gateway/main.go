@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/routers"
+	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/services"
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/utils"
 )
 
@@ -12,7 +13,9 @@ const (
 )
 
 func main() {
-	utils.InitLogger()
+	utils.Logger = utils.InitLogger()
+
+	services.Clients = services.InitServiceClients()
 
 	router := routers.NewRouter()
 
