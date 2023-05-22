@@ -4,7 +4,7 @@
 // - protoc             v4.23.0
 // source: protos/queue/queue.proto
 
-package queue
+package queuepb
 
 import (
 	context "context"
