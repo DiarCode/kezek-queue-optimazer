@@ -1,6 +1,8 @@
 package services
 
 import (
+	"fmt"
+
 	authpb "github.com/DiarCode/kezek-queue-optimazer/gateway/src/gen/auth"
 	eventpb "github.com/DiarCode/kezek-queue-optimazer/gateway/src/gen/event"
 	"github.com/DiarCode/kezek-queue-optimazer/gateway/src/utils"
@@ -15,6 +17,12 @@ type ClientsType struct {
 
 var Clients *ClientsType
 
+const (
+	authPort  = 50051
+	eventPort = 50052
+	queuePort = 50053
+)
+
 func InitServiceClients() *ClientsType {
 	authClient := getAuthClient()
 	eventClient := getEventClient()
@@ -28,7 +36,8 @@ func InitServiceClients() *ClientsType {
 }
 
 func getEventClient() eventpb.EventServiceClient {
-	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	uri := fmt.Sprintf("localhost:%v", eventPort)
+	conn, err := grpc.Dial(uri, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		utils.LoggerFatalf("Failed to connect to Event client: %v", err)
 	}
@@ -37,7 +46,8 @@ func getEventClient() eventpb.EventServiceClient {
 }
 
 func getAuthClient() authpb.AuthServiceClient {
-	conn, err := grpc.Dial("localhost:50052", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	uri := fmt.Sprintf("localhost:%v", authPort)
+	conn, err := grpc.Dial(uri, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		utils.LoggerFatalf("Failed to connect to Auth client: %v", err)
 	}

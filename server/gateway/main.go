@@ -13,7 +13,7 @@ const (
 )
 
 func main() {
-	utils.Logger = utils.InitLogger()
+	utils.InitLogger()
 
 	services.Clients = services.InitServiceClients()
 

@@ -13,15 +13,15 @@ const (
 	context = "[Gateway]"
 )
 
-func InitLogger() *zap.Logger {
-	logger, err := zap.NewProduction()
+func InitLogger() {
+	var err error
+	Logger, err = zap.NewProduction()
 
 	if err != nil {
 		log.Fatalf("Failed to initialize logger: %v", err)
 	}
 
-	defer logger.Sync()
-	return logger
+	defer Logger.Sync()
 }
 
 func LoggerInfo(msg string) {

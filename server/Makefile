@@ -8,3 +8,11 @@ protos:
 	move .\gen .\services\auth\src\gen
 	move .\gen .\services\events\src\gen
 	move .\gen .\services\queues\src\gen
+
+setup:
+# auth
+	 go run ./
+# event
+	 go run ./
+# queue
+	 go run ./

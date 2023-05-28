@@ -15,7 +15,8 @@ var DB *gorm.DB
 func ConnectDB() {
 	var err error
 	dsn := fmt.Sprintf(
-		"host=db user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Shanghai",
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Shanghai",
+		config.Config.DB_HOST,
 		config.Config.DB_USER,
 		config.Config.DB_PASSWORD,
 		config.Config.DB_NAME,
