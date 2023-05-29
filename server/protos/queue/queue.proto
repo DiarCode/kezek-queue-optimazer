@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package queuepb;
 
-option go_package = "./src/gen/queue";
+option go_package = "./gen/queue";
 
 import "google/protobuf/timestamp.proto";
 
