@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package eventpb;
+
+option go_package = "./gen/event";
+
+import "google/protobuf/timestamp.proto";
+
+service EventService {
+    rpc CreateEvent(CreateEventRequest) returns (Event);
+    rpc GetAllEvents(EmptyRequest) returns (GetAllEventsResponse);
+    rpc GetEventById(GetEventByIdRequest) returns (Event);
+}
+
+//TODO: Add field to track aprox waiting time
+
+message Event {
+    int64 id = 1;
+    string title = 2;     
+    string image = 3;        
+    string description = 4; 
+    int64 createdBy = 5; 
+    google.protobuf.Timestamp timeBegin = 6;  
+    google.protobuf.Timestamp  timeEnd = 7; 
+    google.protobuf.Timestamp createdAt = 8;  
+}
+
+message CreateEventRequest {
+    string	title = 1;     
+    string	image = 2;        
+    string	description = 3; 
+    int64	createdBy = 4; 
+    google.protobuf.Timestamp timeBegin = 5;  
+    google.protobuf.Timestamp timeEnd = 6; 
+}
+
+message GetAllEventsResponse {
+    repeated Event events = 1;
+}
+
+message GetEventByIdRequest {
+    int64 id = 1; 
+}
+
+message EmptyRequest {}
