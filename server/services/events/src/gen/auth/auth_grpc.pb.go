@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.12
-// source: src/protos/auth/auth.proto
+// source: protos/auth/auth.proto
 
-package authpb
+package auth
 
 import (
 	context "context"
@@ -58,6 +58,7 @@ func (c *authServiceClient) Signup(ctx context.Context, in *SignupRequest, opts 
 type AuthServiceServer interface {
 	Login(context.Context, *LoginRequest) (*AuthResponse, error)
 	Signup(context.Context, *SignupRequest) (*AuthResponse, error)
+	mustEmbedUnimplementedAuthServiceServer()
 }
 
 // UnimplementedAuthServiceServer must be embedded to have forward compatible implementations.
@@ -136,5 +137,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "src/protos/auth/auth.proto",
+	Metadata: "protos/auth/auth.proto",
 }

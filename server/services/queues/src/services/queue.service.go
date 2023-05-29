@@ -9,5 +9,6 @@ import (
 type QueueService struct{}
 
 func (*QueueService) CreateQueue(ctx context.Context, req *queuepb.CreateQueueRequest) (*queuepb.Queue, error) {
+	
 	return nil, nil
 }

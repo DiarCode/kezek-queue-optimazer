@@ -8,6 +8,8 @@ import "google/protobuf/timestamp.proto";
 
 service QueueService {
     rpc CreateQueue(CreateQueueRequest) returns (Queue);
+    rpc GetQueueById(GetQueueByIdRequest) returns (Queue);
+    rpc InsertCandidateToQueue(InsertCandidateToQueueRequest) returns (QueueItem);
 }
 
 message Queue {
@@ -17,15 +19,28 @@ message Queue {
 }
 
 message QueueItem {
-    int64 id = 1;
+    string id = 1;
     int64 userId = 2;
     int32 position = 3;
     bool isCurrent = 4; 
     google.protobuf.Timestamp enteredAt = 5;  
 }
 
+message InsertCandidateToQueueResponse {
+    int32 position = 1;
+    google.protobuf.Timestamp waitingTime = 2;  
+}
+
 message CreateQueueRequest {
     int64 eventId = 1;
+}
+
+message GetQueueByIdRequest {
+    string id = 1;
+}
+
+message InsertCandidateToQueueRequest {
+    int64 userId = 1;
 }
 
 message EmptyRequest {}
