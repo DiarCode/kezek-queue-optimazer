@@ -5,15 +5,16 @@ import (
 	"time"
 
 	"github.com/DiarCode/kezek-queue-optimazer/queues/src/database"
+	queuepb "github.com/DiarCode/kezek-queue-optimazer/queues/src/gen/queue"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type Queue struct {
-	Id         primitive.ObjectID `json:"id" bson:"_id"`
-	EventId    int64              `json:"eventId" bson:"eventId"`
-	QueueItems []QueueItem        `json:"queueItems" bson:"queueItems"`
+	Id         primitive.ObjectID   `json:"id" bson:"_id"`
+	EventId    int64                `json:"eventId" bson:"eventId"`
+	QueueItems []*queuepb.QueueItem `json:"queueItems" bson:"queueItems"`
 }
 
 type QueueItem struct {
@@ -54,3 +55,5 @@ func CreateQueue(queue *Queue) error {
 
 	return nil
 }
+
+func InsertCandidateToQueue() {}
