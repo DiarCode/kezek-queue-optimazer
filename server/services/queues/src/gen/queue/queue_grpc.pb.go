@@ -69,6 +69,7 @@ type QueueServiceServer interface {
 	CreateQueue(context.Context, *CreateQueueRequest) (*Queue, error)
 	GetQueueById(context.Context, *GetQueueByIdRequest) (*Queue, error)
 	InsertCandidateToQueue(context.Context, *InsertCandidateToQueueRequest) (*QueueItem, error)
+	mustEmbedUnimplementedQueueServiceServer()
 }
 
 // UnimplementedQueueServiceServer must be embedded to have forward compatible implementations.
