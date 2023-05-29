@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/DiarCode/kezek-queue-optimazer/events/src/config"
-	"github.com/DiarCode/kezek-queue-optimazer/events/src/models"
+	eventpb "github.com/DiarCode/kezek-queue-optimazer/events/src/gen/event"
 	"github.com/DiarCode/kezek-queue-optimazer/events/src/utils"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -31,7 +31,7 @@ func ConnectDB() {
 	utils.LoggerInfo("Running migrations")
 
 	err = DB.AutoMigrate(
-		&models.Event{},
+		&eventpb.Event{},
 	)
 
 	if err != nil {

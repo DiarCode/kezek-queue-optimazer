@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -69,7 +70,6 @@ type EventServiceServer interface {
 	CreateEvent(context.Context, *CreateEventRequest) (*Event, error)
 	GetAllEvents(context.Context, *EmptyRequest) (*GetAllEventsResponse, error)
 	GetEventById(context.Context, *GetEventByIdRequest) (*Event, error)
-	mustEmbedUnimplementedEventServiceServer()
 }
 
 // UnimplementedEventServiceServer must be embedded to have forward compatible implementations.
