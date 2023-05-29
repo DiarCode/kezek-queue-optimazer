@@ -11,6 +11,7 @@ import (
 	queuepb "github.com/DiarCode/kezek-queue-optimazer/queues/src/gen/queue"
 	"github.com/DiarCode/kezek-queue-optimazer/queues/src/services"
 	"github.com/DiarCode/kezek-queue-optimazer/queues/src/utils"
+	"github.com/streadway/amqp"
 
 	"google.golang.org/grpc"
 )
@@ -18,13 +19,31 @@ import (
 func main() {
 	utils.InitLogger()
 
-	config.Config = &config.AppConfig{
+	config.Config = &config.AppConfigType{
 		APP_PORT: 50052,
 
 		DB_NAME: os.Getenv("DB_USER"),
 		DB_URI:  os.Getenv("DB_URI"),
 	}
 
+	// RabbitMQ
+	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	if err != nil {
+		utils.LoggerFatalf("Failed to connect to RabbitMQ: %v", err)
+	}
+	defer conn.Close()
+
+	channel, err := conn.Channel()
+	if err != nil {
+		utils.LoggerFatalf("Failed to open a channel: %v", err)
+	}
+	defer channel.Close()
+
+	config.RabbitMQConfig = &config.RabbitMQConfigType{
+		Channel: channel,
+	}
+
+	// Database
 	client := database.ConnectDB()
 	defer func() {
 		if err := client.Disconnect(context.Background()); err != nil {

@@ -1,8 +1,8 @@
 package config
 
-var Config *AppConfig
+var Config *AppConfigType
 
-type AppConfig struct {
+type AppConfigType struct {
 	APP_PORT int
 
 	DB_URI  string
