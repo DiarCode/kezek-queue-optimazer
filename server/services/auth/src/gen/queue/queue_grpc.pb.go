@@ -24,7 +24,8 @@ const _ = grpc.SupportPackageIsVersion7
 type QueueServiceClient interface {
 	CreateQueue(ctx context.Context, in *CreateQueueRequest, opts ...grpc.CallOption) (*Queue, error)
 	GetQueueById(ctx context.Context, in *GetQueueByIdRequest, opts ...grpc.CallOption) (*Queue, error)
-	InsertCandidateToQueue(ctx context.Context, in *InsertCandidateToQueueRequest, opts ...grpc.CallOption) (*QueueItem, error)
+	GetQueueItemByUserId(ctx context.Context, in *GetQueueItemByUserIdRequest, opts ...grpc.CallOption) (*InsertCandidateToQueueResponse, error)
+	InsertCandidateToQueue(ctx context.Context, in *InsertCandidateToQueueRequest, opts ...grpc.CallOption) (*InsertCandidateToQueueResponse, error)
 }
 
 type queueServiceClient struct {
@@ -53,8 +54,17 @@ func (c *queueServiceClient) GetQueueById(ctx context.Context, in *GetQueueByIdR
 	return out, nil
 }
 
-func (c *queueServiceClient) InsertCandidateToQueue(ctx context.Context, in *InsertCandidateToQueueRequest, opts ...grpc.CallOption) (*QueueItem, error) {
-	out := new(QueueItem)
+func (c *queueServiceClient) GetQueueItemByUserId(ctx context.Context, in *GetQueueItemByUserIdRequest, opts ...grpc.CallOption) (*InsertCandidateToQueueResponse, error) {
+	out := new(InsertCandidateToQueueResponse)
+	err := c.cc.Invoke(ctx, "/queuepb.QueueService/GetQueueItemByUserId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queueServiceClient) InsertCandidateToQueue(ctx context.Context, in *InsertCandidateToQueueRequest, opts ...grpc.CallOption) (*InsertCandidateToQueueResponse, error) {
+	out := new(InsertCandidateToQueueResponse)
 	err := c.cc.Invoke(ctx, "/queuepb.QueueService/InsertCandidateToQueue", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -68,7 +78,8 @@ func (c *queueServiceClient) InsertCandidateToQueue(ctx context.Context, in *Ins
 type QueueServiceServer interface {
 	CreateQueue(context.Context, *CreateQueueRequest) (*Queue, error)
 	GetQueueById(context.Context, *GetQueueByIdRequest) (*Queue, error)
-	InsertCandidateToQueue(context.Context, *InsertCandidateToQueueRequest) (*QueueItem, error)
+	GetQueueItemByUserId(context.Context, *GetQueueItemByUserIdRequest) (*InsertCandidateToQueueResponse, error)
+	InsertCandidateToQueue(context.Context, *InsertCandidateToQueueRequest) (*InsertCandidateToQueueResponse, error)
 	mustEmbedUnimplementedQueueServiceServer()
 }
 
@@ -82,7 +93,10 @@ func (UnimplementedQueueServiceServer) CreateQueue(context.Context, *CreateQueue
 func (UnimplementedQueueServiceServer) GetQueueById(context.Context, *GetQueueByIdRequest) (*Queue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueById not implemented")
 }
-func (UnimplementedQueueServiceServer) InsertCandidateToQueue(context.Context, *InsertCandidateToQueueRequest) (*QueueItem, error) {
+func (UnimplementedQueueServiceServer) GetQueueItemByUserId(context.Context, *GetQueueItemByUserIdRequest) (*InsertCandidateToQueueResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQueueItemByUserId not implemented")
+}
+func (UnimplementedQueueServiceServer) InsertCandidateToQueue(context.Context, *InsertCandidateToQueueRequest) (*InsertCandidateToQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertCandidateToQueue not implemented")
 }
 func (UnimplementedQueueServiceServer) mustEmbedUnimplementedQueueServiceServer() {}
@@ -134,6 +148,24 @@ func _QueueService_GetQueueById_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _QueueService_GetQueueItemByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQueueItemByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueueServiceServer).GetQueueItemByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/queuepb.QueueService/GetQueueItemByUserId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueueServiceServer).GetQueueItemByUserId(ctx, req.(*GetQueueItemByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _QueueService_InsertCandidateToQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(InsertCandidateToQueueRequest)
 	if err := dec(in); err != nil {
@@ -166,6 +198,10 @@ var QueueService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetQueueById",
 			Handler:    _QueueService_GetQueueById_Handler,
+		},
+		{
+			MethodName: "GetQueueItemByUserId",
+			Handler:    _QueueService_GetQueueItemByUserId_Handler,
 		},
 		{
 			MethodName: "InsertCandidateToQueue",
